@@ -1,8 +1,10 @@
+import sys
 import matplotlib.pyplot as plt
 from random import randint
 
-WIDTH  = 10
-HEIGHT = 10
+WIDTH  = 60
+HEIGHT = 40
+sys.setrecursionlimit(WIDTH * HEIGHT)
 
 def initVisitedList():
 	visited = []
@@ -25,7 +27,7 @@ def get_edges(x, y):
 	result.append((x+1, y, x+1, y+1))
 	result.append((x, y, x+1, y))
 	result.append((x, y+1, x+1, y+1))
-	
+
 	return result
 
 def drawCell(x, y):
@@ -39,8 +41,6 @@ def getCommonEdge(cell1_x, cell1_y, cell2_x, cell2_y):
 	for edge in edges1:
 		if edge in edges2:
 			return edge
-	print(edges1)
-	print(edges2)
 	return None
 
 def initEdgeList():
